@@ -1,35 +1,101 @@
 <script>
-	let firstName = "Alejandro";
-	let lastName = "Segura";
-	let color = 'Blue';
+	import Component1 from "./components/Component1.svelte";
 
-	$: name = `${firstName} ${lastName}`
+
+	let name = "alejandro";
+	let catUrl = 'https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg'
+	let src = 'https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg'
+
+	// Functions
+
+	let count = 0;
+
+	function increment() {
+		//assignment
+			//count = 10;
+		// update statements
+			//count ++
+		// updating / assigning property
+			//obj.count++;
+		count ++;
+	}
+
 
 </script>
 
-<main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-</main>
+
+
+
+
+
+
+<h1>My First Svelte component</h1>
+
+<p>Hello World</p>
+<h2>My name is {name}</h2>
+<div>
+	<img alt='cat' src={catUrl} width="200" height="200" >
+	<img alt='cat' {src} width="200" height="200" >
+	<!-- This is the short hand if the variable is the same as the atribute  -->
+
+
+	<a href="http://">Link to my youtube channel</a>
+</div>
+
+<Component1 />
+
+
+{count}
+<button on:click={increment}>
+	click Me
+</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
 	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+		color: rebeccapurple;
+		animation: zoom 5s infinite;
 	}
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	/* :global(h1) {  exp- the :global() applies styles to all components. 
+		color: rebeccapurple;
+		animation: zoom 5s infinite;
+	} */
+
+	p {
+		font-size: 44px;
 	}
+
+	@keyframes zoom {
+		0%, 100% { transform: scale(3);}
+		50% {transform: scale(0.5);}
+	}
+
+	/* @keyframes -global-zoom { exp - makes keyframes global psuedo selector
+		0%, 100% { transform: scale(3);}
+		50% {transform: scale(0.5);}
+	} */
+
 </style>
+
+
